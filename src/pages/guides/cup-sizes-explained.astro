@@ -1,0 +1,118 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Faq from '../../components/Faq.astro';
+import Share from '../../components/Share.astro';
+import MoreTools from '../../components/MoreTools.astro';
+import { site } from '../../site.config';
+import { webAppLd, howToLd, clampDescription } from '../../lib/seo';
+import { absoluteUrl, withBase } from '../../lib/url';
+import { getIngredient } from '../../lib/ingredients';
+import { convert, roundForDisplay, CUP_SIZES_ML, CUP_LABELS, type CupKey } from '../../lib/units';
+
+const title = 'US Cup vs Metric Cup vs Imperial Cup: What It Means in Grams';
+const description = clampDescription(
+  'A US cup, a metric cup and an imperial cup are three different volumes (236.6, 250 and 284.1 ml) — so the same "1 cup" of an ingredient weighs a different amount of grams depending on which one a recipe means. Full comparison table by ingredient.',
+);
+
+// Real, computed weights — not invented: every figure below comes straight from convert(), the
+// same function the converter tool uses, run against this page's own dataset for each cup size.
+const exampleSlugs = ['all-purpose-flour', 'granulated-sugar', 'butter', 'honey', 'whole-milk'];
+const examples = exampleSlugs.map((slug) => getIngredient(slug)!).filter(Boolean);
+const cupKeys = Object.keys(CUP_LABELS) as CupKey[];
+
+const steps = [
+  { name: "Find your recipe's origin", text: 'US recipes almost always mean the US customary cup (236.6 ml). British, Australian and New Zealand recipes usually mean the metric cup (250 ml). A US nutrition label uses the US "legal" cup (240 ml).' },
+  { name: 'Open the ingredient in the converter', text: 'Pick the specific ingredient — a cup of flour and a cup of honey do not scale the same way, since they have different densities.' },
+  { name: 'Switch the cup definition', text: 'Use the "cup definition" selector above the result to match the cup size your recipe actually means, then read the gram figure.' },
+];
+
+const faqs = [
+  { q: 'Why does a recipe not just say the weight in grams?', a: 'Older and many home-cooking recipes were written for measuring cups, which are quick and don’t need a scale. The trade-off is that a "cup" is ambiguous unless the recipe says which cup it means.' },
+  { q: 'Which cup is biggest?', a: `The imperial cup (${CUP_SIZES_ML.imperial} ml) is the largest of the four, followed by the metric cup (${CUP_SIZES_ML.metric} ml), the US legal cup (${CUP_SIZES_ML.uslegal} ml), and the US customary cup (${CUP_SIZES_ML.us} ml) is the smallest.` },
+  { q: 'Does the cup-size difference matter for every ingredient equally?', a: 'It scales with the ingredient’s density: a denser ingredient (like honey or butter) gains more grams per extra millilitre than a light, aerated one (like flour), even though the percentage difference between cup sizes is the same for every ingredient.' },
+  { q: 'Is there a "correct" cup size?', a: "No single one is correct — use whichever one matches where the recipe was written. GramCup's converter supports all four so you never have to guess." },
+];
+---
+
+<Base
+  title={title}
+  description={description}
+  jsonLd={[
+    webAppLd({ name: title, description, url: '/guides/cup-sizes-explained/', interactive: false, dateModified: site.dataUpdated }),
+    howToLd({ name: 'How to convert a recipe between cup sizes', description: 'Matching a recipe\'s cup measurement to the cup size it actually means.', steps }),
+  ]}
+>
+  <article class="container container--narrow section">
+    <Breadcrumbs items={[{ name: 'Home', url: '/' }, { name: 'Cup sizes explained', url: '/guides/cup-sizes-explained/' }]} />
+    <h1>{title}</h1>
+    <p class="answer">
+      A "cup" is not one fixed volume: the <strong>US customary cup</strong> is {CUP_SIZES_ML.us} ml, the <strong>US legal cup</strong> (used on
+      US nutrition labels) is {CUP_SIZES_ML.uslegal} ml, the <strong>metric cup</strong> (UK/AU/NZ recipes) is {CUP_SIZES_ML.metric} ml, and the{' '}
+      <strong>imperial cup</strong> is {CUP_SIZES_ML.imperial} ml — a {Math.round(((CUP_SIZES_ML.imperial - CUP_SIZES_ML.us) / CUP_SIZES_ML.us) * 100)}%
+      spread between the smallest and largest.
+    </p>
+    <p class="muted small">Data updated: {site.dataUpdated}.</p>
+
+    <h2>What one cup weighs, by cup size</h2>
+    <p class="muted">Computed directly from each ingredient's measured density — the same figures the <a href={withBase('/')}>converter</a> uses.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Ingredient</th>
+            {cupKeys.map((k) => <th scope="col">{CUP_LABELS[k].split(' (')[0]}</th>)}
+          </tr>
+        </thead>
+        <tbody>
+          {
+            examples.map((ing) => (
+              <tr>
+                <th scope="row"><a href={withBase(`/${ing.slug}/`)}>{ing.name}</a></th>
+                {cupKeys.map((k) => <td>{roundForDisplay(convert(1, 'cup', 'g', ing, CUP_SIZES_ML[k]), 'g')} g</td>)}
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <h2>How to convert between cup sizes</h2>
+    <ol>
+      {steps.map((s) => (
+        <li><strong>{s.name}.</strong> {s.text}</li>
+      ))}
+    </ol>
+    <p><a class="btn" href={withBase('/')}>Open the converter →</a></p>
+
+    <Faq items={faqs} />
+
+    <h2>Related</h2>
+    <ul class="related-list">
+      {examples.map((ing) => (
+        <li><a href={withBase(`/${ing.slug}/`)}>{ing.name}: grams to cups</a></li>
+      ))}
+      <li><a href={withBase('/ingredients/')}>All ingredients</a></li>
+      <li><a href={withBase('/about/')}>Methodology & sources</a></li>
+    </ul>
+
+    <Share url={absoluteUrl('/guides/cup-sizes-explained/')} text="US cup vs metric cup vs imperial cup, in grams — GramCup" />
+  </article>
+
+  <section class="container">
+    <MoreTools />
+  </section>
+</Base>
+
+<style>
+  .answer {
+    font-size: var(--text-lg);
+  }
+  .related-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-4);
+  }
+</style>

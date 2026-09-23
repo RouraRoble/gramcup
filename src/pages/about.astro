@@ -1,0 +1,110 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import MoreTools from '../components/MoreTools.astro';
+import { site } from '../site.config';
+import { ingredients } from '../lib/ingredients';
+import { CUP_SIZES_ML, CUP_LABELS } from '../lib/units';
+import { withBase } from '../lib/url';
+import { articleLd } from '../lib/seo';
+
+const title = `About ${site.name} — Methodology & Sources`;
+const description = `How ${site.name} compiles ingredient weights, why published gram figures differ, which cup definitions it supports, and where every number comes from.`;
+const lastUpdated = site.dataUpdated;
+const sourceCount = new Set(ingredients.flatMap((i) => i.sources.map((s) => s.name))).size;
+---
+
+<Base
+  title={title}
+  description={description}
+  jsonLd={[
+    // BreadcrumbList is emitted once by <Breadcrumbs> below; not duplicated here (audit
+    // gramcup-audit-1, P2: "Duplicate BreadcrumbList JSON-LD on every page that has breadcrumbs").
+    articleLd({ headline: title, description, url: '/about/', datePublished: site.launched, dateModified: lastUpdated }),
+  ]}
+>
+  <article class="container container--narrow section prose">
+    <Breadcrumbs items={[{ name: 'Home', url: '/' }, { name: 'About', url: '/about/' }]} />
+    <h1>About {site.name}</h1>
+    <p class="muted small">Last updated: {lastUpdated}</p>
+    <p>{site.description}</p>
+
+    <h2>What it does</h2>
+    <p>
+      {site.name} converts grams, cups, tablespoons and teaspoons for {ingredients.length} specific ingredients, because a
+      cup is a volume and a gram is a weight — the conversion between them depends on how densely the ingredient packs.
+      A cup of flour and a cup of honey do not weigh the same. Pick your ingredient, and the converter uses that
+      ingredient's measured density instead of a generic "1 cup = 240 g" rule of thumb.
+    </p>
+
+    <h2>Methodology</h2>
+    <p>
+      Every ingredient's <code>gramsPerCup</code> figure is either taken directly from a published source's reported
+      "1 cup" weight, or computed by linear scaling from a fractional-cup, tablespoon or teaspoon weight the same
+      source reported. For example, a source reporting "¼ cup cornstarch = 28 g" yields 112 g per cup — that is a
+      unit conversion of a real measured density, not an invented number. Tablespoon and teaspoon weights are
+      likewise derived from the cup figure (1 US cup = 16 tablespoons = 48 teaspoons) unless the source reported the
+      spoon weight directly, in which case that direct figure is used.
+    </p>
+    <p>
+      The primary source is the <a href="https://www.kingarthurbaking.com/learn/ingredient-weight-chart" rel="noopener">King Arthur Baking Company ingredient weight chart</a>,
+      a widely used baking reference. Where available, figures are cross-checked against
+      {' '}<a href="https://fdc.nal.usda.gov/" rel="noopener">USDA FoodData Central</a> (public domain, CC0 1.0
+      Universal) household-measure data. Every ingredient page lists every source used for that ingredient and each
+      source's own gram-per-cup figure, so you can see exactly where a number came from and how much sources
+      disagree — see <a href={withBase('/ingredients/')}>all ingredients</a>.
+    </p>
+
+    <h2>Why the same ingredient shows different weights elsewhere</h2>
+    <p>
+      Dry ingredients compress. Scooping a measuring cup directly into a bag of flour packs it in and can weigh
+      15–20% more than spooning the flour in loosely and levelling it with a knife — which is why professional
+      baking references specify "spoon and level" or "fluff, spoon, level" as the standard method. Brown sugar goes
+      the other way: recipes assume it is packed firmly into the cup unless they say otherwise. Each ingredient page
+      includes a measuring tip and, where sources disagree, the range those sources report — see the full breakdown in{' '}
+      <a href={withBase('/guides/why-cup-weights-differ-by-source/')}>why different sites give different gram weights</a>.
+    </p>
+
+    <h2>Cup definitions</h2>
+    <p>The word "cup" means slightly different volumes depending on where a recipe comes from. {site.name} supports all four in the converter:</p>
+    <ul>
+      {(Object.keys(CUP_LABELS) as (keyof typeof CUP_LABELS)[]).map((k) => (
+        <li><strong>{CUP_LABELS[k]}</strong> — {CUP_SIZES_ML[k]} ml</li>
+      ))}
+    </ul>
+    <p>American recipes almost always mean the US customary cup; British, Australian and New Zealand recipes typically mean the metric cup. See the{' '}
+      <a href={withBase('/guides/cup-sizes-explained/')}>full cup-size comparison guide</a> for what each one weighs by ingredient.</p>
+
+    <h2>The recipe scaler</h2>
+    <p>
+      The <a href={withBase('/recipe-scaler/')}>recipe scaler</a> parses pasted ingredient lines (quantity, unit,
+      ingredient name), then scales every line by a factor, by servings, or by the ratio of two pan areas. Lines
+      whose ingredient text does not match the dataset are still scaled by quantity — you just won't get a gram
+      conversion for that line, since a gram conversion needs a known density.
+    </p>
+
+    <h2>Known limits</h2>
+    <ul>
+      <li>The dataset covers {ingredients.length} common baking and cooking ingredients ({sourceCount} distinct sources cited across them), not every possible ingredient. Unmatched ingredients in the recipe scaler still scale numerically.</li>
+      <li>Weights assume room-temperature, dry-stored ingredients as commonly sold; humidity and brand can shift real weights by a few percent.</li>
+      <li>The ground-cinnamon figure is flagged as an approximate spice-density estimate rather than a directly measured USDA/King Arthur figure — see that ingredient's page for the note.</li>
+    </ul>
+
+    <h2>Privacy by design</h2>
+    <p>
+      {site.name} runs entirely in your browser. Nothing you type — ingredient, amount, or a pasted recipe — is
+      uploaded anywhere. There is no account and no tracking cookies. See the <a href={withBase('/privacy/')}>privacy policy</a>.
+    </p>
+
+    <h2>Who maintains it</h2>
+    <p>
+      Built and maintained by <a href={site.author.url} rel="noopener">{site.author.name}</a>. Launched {site.launched}.
+      Found a data error or have a suggestion? <a href={withBase('/contact/')}>Get in touch</a> — for data corrections,
+      include the exact value, the correct value, and a source we can verify.
+    </p>
+  </article>
+
+  <section class="container">
+    <MoreTools />
+  </section>
+</Base>

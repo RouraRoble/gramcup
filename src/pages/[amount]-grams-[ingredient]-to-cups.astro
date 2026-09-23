@@ -1,0 +1,146 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Faq from '../components/Faq.astro';
+import MoreTools from '../components/MoreTools.astro';
+import { getTopIngredients, getIngredient, type Ingredient } from '../lib/ingredients';
+import { convert, roundForDisplay, formatKitchen, kitchenValue, unitPhrase } from '../lib/units';
+import { measuringTip } from '../lib/measuring-tip';
+import { GRAM_AMOUNTS } from '../lib/programmatic';
+import { clampDescription, webAppLd } from '../lib/seo';
+import { withBase } from '../lib/url';
+import { site } from '../site.config';
+
+export function getStaticPaths() {
+  const top = getTopIngredients();
+  return top.flatMap((ingredient) => GRAM_AMOUNTS.map((amount) => ({ params: { amount: String(amount), ingredient: ingredient.slug }, props: { ingredient, amount } })));
+}
+
+interface Props {
+  ingredient: Ingredient;
+  amount: number;
+}
+const { ingredient, amount } = Astro.props as Props;
+
+const cups = convert(amount, 'g', 'cup', ingredient);
+const cupsKitchen = formatKitchen(cups);
+const cupsRounded = roundForDisplay(cups, 'cup');
+const tbspRaw = convert(amount, 'g', 'tbsp', ingredient);
+const tbsp = roundForDisplay(tbspRaw, 'tbsp');
+const tsp = roundForDisplay(convert(amount, 'g', 'tsp', ingredient), 'tsp');
+const oz = roundForDisplay(convert(amount, 'g', 'oz', ingredient), 'oz');
+const lb = roundForDisplay(convert(amount, 'g', 'lb', ingredient), 'lb');
+
+// A per-amount, per-ingredient note on whether this specific weight lands close to a clean spoon
+// count or not — genuinely different from page to page (it depends on both the gram amount and the
+// ingredient's density, not just a linear scale-up of the same sentence), unlike the rest of the
+// template which mostly substitutes numbers into fixed prose (audit gramcup-audit-2, P2: "1,140
+// programmatic pages are near-identical templates").
+const nearestHalfTbsp = Math.round(tbspRaw * 2) / 2;
+const spoonsRoundCleanly = Math.abs(tbspRaw - nearestHalfTbsp) < 0.08;
+// The 6 closest other amounts to this page's, not just the first 6 in list order (audit
+// gramcup-audit-1, P2: "Nearby amounts always lists 25–150 g on every page").
+const nearby = GRAM_AMOUNTS.filter((g) => g !== amount)
+  .sort((a, b) => Math.abs(a - amount) - Math.abs(b - amount))
+  .slice(0, 6)
+  .sort((a, b) => a - b);
+
+// Pluralized "cup(s)"/"tablespoon(s)"/"teaspoon(s)" (audit gramcup-audit-1, P3: "1 cups of
+// granulated sugar", "1 pounds" pluralization nits). `cupsKitchenWord` is pluralized off
+// `kitchenValue(cups)` — the same snapped number `cupsKitchen`'s text is built from — so it never
+// says "1 cups" when the kitchen text reads "1" (audit gramcup-audit-2, P3: this was still wrong
+// because the word was pluralized off the separately-rounded decimal `cupsRounded` instead).
+const cupsKitchenWord = unitPhrase(kitchenValue(cups), 'cup');
+const cupsWord = unitPhrase(cupsRounded, 'cup');
+const tbspWord = unitPhrase(tbsp, 'tbsp');
+const tspWord = unitPhrase(tsp, 'tsp');
+const ozWord = unitPhrase(oz, 'oz');
+const lbWord = unitPhrase(lb, 'lb');
+const metricCups = roundForDisplay(cups * (236.588 / 250), 'cup');
+
+// When the amount doesn't land near a common kitchen fraction, `formatKitchen` just prints the
+// same decimal `roundForDisplay` already computed (e.g. both are "0.3"), so the two figures read
+// as a pointless "0.3 cup (0.3 cup)" — the parenthetical only earns its place when it's telling
+// the reader something the kitchen text didn't already say (audit gramcup-audit-3, still open
+// from audit 2: "is 0.3 cup (0.3 cup)" on 342 pages).
+const cupsParenthetical = cupsKitchen === String(cupsRounded) ? '' : ` (${cupsRounded} ${cupsWord})`;
+
+const title = `${amount} Grams of ${ingredient.name} to Cups (${cupsRounded} ${cupsWord})`;
+const description = clampDescription(`${amount} g of ${ingredient.name.toLowerCase()} is ${cupsKitchen} ${cupsKitchenWord}${cupsParenthetical}, based on ${ingredient.gramsPerCup} g per US cup. See the full chart, tablespoon equivalent and nearby amounts.`);
+
+const faqs = [
+  { q: `How many cups is ${amount} g of ${ingredient.name.toLowerCase()}?`, a: `${amount} g of ${ingredient.name.toLowerCase()} is about ${cupsKitchen} ${cupsKitchenWord}${cupsParenthetical}, using ${ingredient.gramsPerCup} g per US cup.` },
+  { q: `How many tablespoons is ${amount} g of ${ingredient.name.toLowerCase()}?`, a: `${amount} g of ${ingredient.name.toLowerCase()} is about ${tbsp} ${tbspWord}, or ${tsp} ${tspWord}.` },
+  { q: `Does this change with a metric cup?`, a: `Yes — a metric cup (250 ml) holds slightly more than a US cup (236.6 ml), so the cup figure would be about ${metricCups} metric ${unitPhrase(metricCups, 'cup')} for the same ${amount} g. Use the converter for any cup definition.` },
+];
+---
+
+<Base
+  title={title}
+  description={description}
+  image={`/og/${ingredient.slug}.png`}
+  jsonLd={[
+    // BreadcrumbList is emitted once by <Breadcrumbs> below; not duplicated here (audit
+    // gramcup-audit-1, P2: "Duplicate BreadcrumbList JSON-LD on every page that has breadcrumbs").
+    webAppLd({ name: title, description, url: `/${amount}-grams-${ingredient.slug}-to-cups/`, interactive: false, dateModified: site.dataUpdated }),
+  ]}
+>
+  <article class="container container--narrow section">
+    <Breadcrumbs items={[{ name: 'Home', url: '/' }, { name: ingredient.name, url: `/${ingredient.slug}/` }, { name: `${amount} g to cups`, url: `/${amount}-grams-${ingredient.slug}-to-cups/` }]} />
+    <h1>{amount} grams of {ingredient.name.toLowerCase()} to cups</h1>
+    <p class="answer">
+      <strong>{amount} g of {ingredient.name.toLowerCase()} = {cupsKitchen} {cupsKitchenWord}</strong>{cupsParenthetical}, based on {ingredient.gramsPerCup} g per US customary cup.
+    </p>
+    <p class="muted">That's also about {tbsp} {tbspWord} or {tsp} {tspWord} — or, by weight, {oz} {ozWord} ({lb} {lbWord}).</p>
+    <p class="muted small">Data updated: {site.dataUpdated}.</p>
+    <p><a class="btn" href={withBase(`/?i=${ingredient.slug}&a=${amount}&f=g&t=cup`)}>Open in the converter →</a></p>
+
+    <p class="muted small">
+      {spoonsRoundCleanly
+        ? `This is a clean spoon measurement: ${amount} g lands close to ${formatKitchen(nearestHalfTbsp)} level tablespoons, so counting spoonfuls is about as accurate as weighing it.`
+        : `${amount} g doesn't land on a clean spoon count for ${ingredient.name.toLowerCase()} — the nearest tablespoon reading (${tbsp}) will be a little off, so a scale is more accurate than counting spoonfuls here.`}
+    </p>
+
+    <p class="tip">
+      <strong>Measuring tip:</strong> {measuringTip(ingredient)}
+    </p>
+    {ingredient.notes && <p class="muted small">{ingredient.notes}</p>}
+
+    <h2>Nearby amounts</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th scope="col">Grams</th><th scope="col">Cups</th></tr>
+        </thead>
+        <tbody>
+          {nearby.map((g) => {
+            const nearbyCupsRaw = convert(g, 'g', 'cup', ingredient);
+            return (
+              <tr>
+                <th scope="row"><a href={withBase(`/${g}-grams-${ingredient.slug}-to-cups/`)}>{g} g</a></th>
+                <td>{formatKitchen(nearbyCupsRaw)} {unitPhrase(kitchenValue(nearbyCupsRaw), 'cup')}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+
+    <Faq items={faqs} />
+
+    <p>
+      See the <a href={withBase(`/${ingredient.slug}/`)}>full {ingredient.name.toLowerCase()} conversion chart</a> for every
+      common amount, tablespoon and teaspoon weights, and sources.
+    </p>
+  </article>
+
+  <section class="container">
+    <MoreTools />
+  </section>
+</Base>
+
+<style>
+  .answer {
+    font-size: var(--text-lg);
+  }
+</style>

@@ -1,0 +1,104 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Faq from '../components/Faq.astro';
+import MoreTools from '../components/MoreTools.astro';
+import { getTopIngredients, type Ingredient } from '../lib/ingredients';
+import { convert, roundForDisplay, unitPhrase } from '../lib/units';
+import { measuringTip } from '../lib/measuring-tip';
+import { CUP_FRACTIONS, type CupFractionDef } from '../lib/programmatic';
+import { clampDescription, webAppLd } from '../lib/seo';
+import { withBase } from '../lib/url';
+import { site } from '../site.config';
+
+export function getStaticPaths() {
+  const top = getTopIngredients();
+  return top.flatMap((ingredient) => CUP_FRACTIONS.map((n) => ({ params: { n: n.key, ingredient: ingredient.slug }, props: { ingredient, n } })));
+}
+
+interface Props {
+  ingredient: Ingredient;
+  n: CupFractionDef;
+}
+const { ingredient, n } = Astro.props as Props;
+
+const grams = roundForDisplay(convert(n.value, 'cup', 'g', ingredient), 'g');
+const oz = roundForDisplay(convert(n.value, 'cup', 'oz', ingredient), 'oz');
+const tbsp = roundForDisplay(convert(n.value, 'cup', 'tbsp', ingredient), 'tbsp');
+// Plural only above 1 whole cup — a fraction of a cup is said in the singular ("½ cup", not
+// "½ cups"; audit gramcup-audit-2, P3).
+const cupWords = /^\d+$/.test(n.key) ? `${n.glyph} cup${n.value > 1 ? 's' : ''}` : `${n.glyph} (${n.words}) cup`;
+const tbspWord = unitPhrase(tbsp, 'tbsp');
+
+const title = `${n.glyph} Cup of ${ingredient.name} in Grams (${grams} g)`;
+const description = clampDescription(`${cupWords} of ${ingredient.name.toLowerCase()} weighs ${grams} g (${oz} oz), based on ${ingredient.gramsPerCup} g per US cup. Full chart, tablespoons and sources.`);
+
+const otherFractions = CUP_FRACTIONS.filter((f) => f.key !== n.key);
+
+const faqs = [
+  { q: `How many grams is ${cupWords} of ${ingredient.name.toLowerCase()}?`, a: `${cupWords} of ${ingredient.name.toLowerCase()} weighs ${grams} g, or ${oz} oz, using ${ingredient.gramsPerCup} g per US cup.` },
+  { q: `How many tablespoons is that?`, a: `${cupWords} of ${ingredient.name.toLowerCase()} is about ${tbsp} ${tbspWord}.` },
+  { q: `Is this the same for a metric cup?`, a: `No — a metric cup (250 ml) is larger than a US cup (236.6 ml), so the same fraction of a metric cup weighs slightly more. Use the converter to switch cup definitions.` },
+];
+---
+
+<Base
+  title={title}
+  description={description}
+  image={`/og/${ingredient.slug}.png`}
+  jsonLd={[
+    // BreadcrumbList is emitted once by <Breadcrumbs> below; not duplicated here (audit
+    // gramcup-audit-1, P2: "Duplicate BreadcrumbList JSON-LD on every page that has breadcrumbs").
+    webAppLd({ name: title, description, url: `/${n.key}-cup-${ingredient.slug}-in-grams/`, interactive: false, dateModified: site.dataUpdated }),
+  ]}
+>
+  <article class="container container--narrow section">
+    <Breadcrumbs items={[{ name: 'Home', url: '/' }, { name: ingredient.name, url: `/${ingredient.slug}/` }, { name: `${n.glyph} cup in grams`, url: `/${n.key}-cup-${ingredient.slug}-in-grams/` }]} />
+    <h1>{cupWords} of {ingredient.name.toLowerCase()} in grams</h1>
+    <p class="answer">
+      <strong>{cupWords} of {ingredient.name.toLowerCase()} = {grams} g</strong> ({oz} oz), based on {ingredient.gramsPerCup} g per US customary cup.
+    </p>
+    <p class="muted">That's about {tbsp} {tbspWord}.</p>
+    <p class="muted small">Data updated: {site.dataUpdated}.</p>
+    <p><a class="btn" href={withBase(`/?i=${ingredient.slug}&a=${n.value}&f=cup&t=g`)}>Open in the converter →</a></p>
+
+    <p class="tip">
+      <strong>Measuring tip:</strong> {measuringTip(ingredient)}
+    </p>
+    {ingredient.notes && <p class="muted small">{ingredient.notes}</p>}
+
+    <h2>Other cup amounts</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th scope="col">Cups</th><th scope="col">Grams</th></tr>
+        </thead>
+        <tbody>
+          {otherFractions.map((f) => (
+            <tr>
+              <th scope="row"><a href={withBase(`/${f.key}-cup-${ingredient.slug}-in-grams/`)}>{f.glyph} cup{f.value > 1 ? 's' : ''}</a></th>
+              <td>{roundForDisplay(convert(f.value, 'cup', 'g', ingredient), 'g')} g</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <Faq items={faqs} />
+
+    <p>
+      See the <a href={withBase(`/${ingredient.slug}/`)}>full {ingredient.name.toLowerCase()} conversion chart</a> for every
+      common amount, tablespoon and teaspoon weights, and sources.
+    </p>
+  </article>
+
+  <section class="container">
+    <MoreTools />
+  </section>
+</Base>
+
+<style>
+  .answer {
+    font-size: var(--text-lg);
+  }
+</style>

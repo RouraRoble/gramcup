@@ -1,0 +1,82 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Faq from '../../components/Faq.astro';
+import Share from '../../components/Share.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import MoreTools from '../../components/MoreTools.astro';
+import Scaler from '../../components/Scaler.tsx';
+import { site } from '../../site.config';
+import { webAppLd, howToLd } from '../../lib/seo';
+import { absoluteUrl } from '../../lib/url';
+
+const title = 'Recipe Scaler & Unit Converter';
+const description = 'Paste a recipe and scale it by a factor, by servings, or by pan size. Optionally convert every ingredient to grams. Works offline, nothing is uploaded.';
+
+const parserSteps = [
+  { name: 'Paste your recipe', text: "Paste one ingredient per line — bullets, dashes and numbered lists are stripped automatically." },
+  { name: 'The parser reads each quantity', text: "Each line's quantity is parsed, including fractions (½, 1 1/2), ranges (2-3 cups), and decimals." },
+  { name: 'Units and ingredients are matched', text: "The unit (cups, tbsp, tsp, g, oz, ml…) and the ingredient name are matched against GramCup's dataset." },
+  { name: 'Choose how to scale', text: 'Pick a scale factor, target servings, or a new pan size — every line updates together.' },
+];
+
+const faqs = [
+  { q: 'How does the pan-size scaler work?', a: 'It scales your recipe by the ratio of the two pans’ areas: a round pan uses π×(diameter/2)², a square pan uses side², and a rectangular pan uses length×width. A 9-inch (23 cm) round cake pan to a 9×13-inch (23×33 cm) rectangular pan scales by about 1.6×.' },
+  { q: 'What happens to ingredients the parser doesn’t recognize?', a: 'Their quantity is still scaled by the same factor — you just won’t get a gram conversion for that line, since GramCup needs a matched ingredient to know its density.' },
+  { q: 'Does the share link keep my exact recipe and settings?', a: 'Yes — the recipe text, scaling mode and options are compressed into the link itself (no server storage), so anyone who opens it sees the same scaled recipe.' },
+];
+---
+
+<Base
+  title={title}
+  description={description}
+  jsonLd={[
+    webAppLd({ url: '/recipe-scaler/', features: ['Scale by factor, servings or pan size', 'Convert an entire recipe to grams', 'Shareable link with lz-string state'], dateModified: site.dataUpdated }),
+    howToLd({ name: 'How the recipe scaler reads your recipe', description: 'How GramCup parses a pasted recipe into quantities, units and ingredients before scaling it.', steps: parserSteps }),
+  ]}
+>
+  <section class="container section--tight">
+    <Breadcrumbs items={[{ name: 'Home', url: '/' }, { name: 'Recipe scaler', url: '/recipe-scaler/' }]} />
+    <p class="eyebrow">Free · No sign-up</p>
+    <h1>Recipe scaler & converter</h1>
+    <p class="lead">Paste your recipe, pick how you want to scale it, and get a converted ingredient list you can copy, print or share.</p>
+    <p class="muted small">Data updated: {site.dataUpdated}.</p>
+  </section>
+
+  <section class="container" aria-label="Recipe scaler">
+    <Scaler client:load />
+  </section>
+
+  <section class="container">
+    <AdSlot slot="scaler-below-tool" minHeight={90} />
+  </section>
+
+  <section class="container container--narrow section">
+    <h2>How the parser reads your recipe</h2>
+    <ol>
+      {parserSteps.map((s) => (
+        <li>{s.text}</li>
+      ))}
+    </ol>
+    <Share url={absoluteUrl('/recipe-scaler/')} text={`${site.name} recipe scaler: paste a recipe, scale it, convert it to grams`} />
+  </section>
+
+  <section class="container container--narrow">
+    <Faq items={faqs} />
+  </section>
+
+  <section class="container">
+    <MoreTools />
+  </section>
+</Base>
+
+<style>
+  .section--tight {
+    padding-block: var(--space-10) var(--space-6);
+  }
+  .lead {
+    font-size: var(--text-lg);
+    color: var(--fg-muted);
+    max-width: 62ch;
+  }
+</style>

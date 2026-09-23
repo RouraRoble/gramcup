@@ -1,0 +1,2010 @@
+[
+  {
+    "slug": "all-purpose-flour",
+    "name": "All-Purpose Flour",
+    "aliases": [
+      "ap flour",
+      "plain flour",
+      "all purpose flour",
+      "flour"
+    ],
+    "category": "flour",
+    "gramsPerCup": 120,
+    "gramsPerTbsp": 7.5,
+    "gramsPerTsp": 2.5,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 120
+      },
+      {
+        "name": "USDA FoodData Central — Wheat flour, white, all-purpose, enriched",
+        "url": "https://fdc.nal.usda.gov/food-search?query=all-purpose%20flour",
+        "gramsPerCup": 125
+      }
+    ],
+    "notes": "Weighed by the \"fluff, spoon into cup, level\" method. USDA FoodData Central records 125 g per cup for this flour (FDC does not state its measuring method) — a reminder that scooping straight from the bag packs more in, so always spoon and level for baking accuracy."
+  },
+  {
+    "slug": "bread-flour",
+    "name": "Bread Flour",
+    "aliases": [
+      "strong flour",
+      "high-gluten flour"
+    ],
+    "category": "flour",
+    "gramsPerCup": 120,
+    "gramsPerTbsp": 7.5,
+    "gramsPerTsp": 2.5,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 120
+      }
+    ]
+  },
+  {
+    "slug": "cake-flour",
+    "name": "Cake Flour",
+    "aliases": [
+      "unbleached cake flour"
+    ],
+    "category": "flour",
+    "gramsPerCup": 120,
+    "gramsPerTbsp": 7.5,
+    "gramsPerTsp": 2.5,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 120
+      }
+    ]
+  },
+  {
+    "slug": "pastry-flour",
+    "name": "Pastry Flour",
+    "aliases": [],
+    "category": "flour",
+    "gramsPerCup": 106,
+    "gramsPerTbsp": 6.6,
+    "gramsPerTsp": 2.2,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 106
+      }
+    ]
+  },
+  {
+    "slug": "whole-wheat-flour",
+    "name": "Whole Wheat Flour",
+    "aliases": [
+      "wholemeal flour",
+      "whole-wheat flour"
+    ],
+    "category": "flour",
+    "gramsPerCup": 113,
+    "gramsPerTbsp": 7.1,
+    "gramsPerTsp": 2.4,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 113
+      }
+    ]
+  },
+  {
+    "slug": "whole-wheat-pastry-flour",
+    "name": "Whole Wheat Pastry Flour",
+    "aliases": [
+      "graham flour"
+    ],
+    "category": "flour",
+    "gramsPerCup": 96,
+    "gramsPerTbsp": 6,
+    "gramsPerTsp": 2,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 96
+      }
+    ]
+  },
+  {
+    "slug": "almond-flour",
+    "name": "Almond Flour",
+    "aliases": [
+      "ground almonds"
+    ],
+    "category": "flour",
+    "gramsPerCup": 96,
+    "gramsPerTbsp": 6,
+    "gramsPerTsp": 2,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 96
+      }
+    ]
+  },
+  {
+    "slug": "coconut-flour",
+    "name": "Coconut Flour",
+    "aliases": [],
+    "category": "flour",
+    "gramsPerCup": 128,
+    "gramsPerTbsp": 8,
+    "gramsPerTsp": 2.7,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 128
+      }
+    ]
+  },
+  {
+    "slug": "oat-flour",
+    "name": "Oat Flour",
+    "aliases": [],
+    "category": "flour",
+    "gramsPerCup": 92,
+    "gramsPerTbsp": 5.8,
+    "gramsPerTsp": 1.9,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 92
+      }
+    ]
+  },
+  {
+    "slug": "self-rising-flour",
+    "name": "Self-Rising Flour",
+    "aliases": [
+      "self raising flour"
+    ],
+    "category": "flour",
+    "gramsPerCup": 113,
+    "gramsPerTbsp": 7.1,
+    "gramsPerTsp": 2.4,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 113
+      }
+    ]
+  },
+  {
+    "slug": "white-rice-flour",
+    "name": "White Rice Flour",
+    "aliases": [
+      "rice flour"
+    ],
+    "category": "flour",
+    "gramsPerCup": 142,
+    "gramsPerTbsp": 8.9,
+    "gramsPerTsp": 3,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 142
+      }
+    ]
+  },
+  {
+    "slug": "brown-rice-flour",
+    "name": "Brown Rice Flour",
+    "aliases": [],
+    "category": "flour",
+    "gramsPerCup": 128,
+    "gramsPerTbsp": 8,
+    "gramsPerTsp": 2.7,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 128
+      }
+    ]
+  },
+  {
+    "slug": "rye-flour",
+    "name": "Rye Flour",
+    "aliases": [
+      "medium rye flour"
+    ],
+    "category": "flour",
+    "gramsPerCup": 106,
+    "gramsPerTbsp": 6.6,
+    "gramsPerTsp": 2.2,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 106
+      }
+    ]
+  },
+  {
+    "slug": "semolina-flour",
+    "name": "Semolina Flour",
+    "aliases": [],
+    "category": "flour",
+    "gramsPerCup": 163,
+    "gramsPerTbsp": 10.2,
+    "gramsPerTsp": 3.4,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 163
+      }
+    ]
+  },
+  {
+    "slug": "spelt-flour",
+    "name": "Spelt Flour",
+    "aliases": [],
+    "category": "flour",
+    "gramsPerCup": 99,
+    "gramsPerTbsp": 6.2,
+    "gramsPerTsp": 2.1,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 99
+      }
+    ]
+  },
+  {
+    "slug": "buckwheat-flour",
+    "name": "Buckwheat Flour",
+    "aliases": [],
+    "category": "flour",
+    "gramsPerCup": 120,
+    "gramsPerTbsp": 7.5,
+    "gramsPerTsp": 2.5,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 120
+      }
+    ]
+  },
+  {
+    "slug": "chickpea-flour",
+    "name": "Chickpea Flour",
+    "aliases": [
+      "garbanzo bean flour",
+      "besan"
+    ],
+    "category": "flour",
+    "gramsPerCup": 85,
+    "gramsPerTbsp": 5.3,
+    "gramsPerTsp": 1.8,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 85
+      }
+    ]
+  },
+  {
+    "slug": "cornmeal",
+    "name": "Cornmeal",
+    "aliases": [
+      "whole cornmeal",
+      "stone-ground cornmeal"
+    ],
+    "category": "flour",
+    "gramsPerCup": 138,
+    "gramsPerTbsp": 8.6,
+    "gramsPerTsp": 2.9,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 138
+      }
+    ],
+    "notes": "A fine-ground brand such as Quaker weighs more per cup (about 156 g) because the particles pack tighter."
+  },
+  {
+    "slug": "cornstarch",
+    "name": "Cornstarch",
+    "aliases": [
+      "corn starch",
+      "cornflour (UK)"
+    ],
+    "category": "starch",
+    "gramsPerCup": 112,
+    "gramsPerTbsp": 7,
+    "gramsPerTsp": 2.3,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 112
+      }
+    ]
+  },
+  {
+    "slug": "potato-starch",
+    "name": "Potato Starch",
+    "aliases": [],
+    "category": "starch",
+    "gramsPerCup": 152,
+    "gramsPerTbsp": 9.5,
+    "gramsPerTsp": 3.2,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 152
+      }
+    ]
+  },
+  {
+    "slug": "tapioca-starch",
+    "name": "Tapioca Starch",
+    "aliases": [
+      "tapioca flour"
+    ],
+    "category": "starch",
+    "gramsPerCup": 113,
+    "gramsPerTbsp": 7.1,
+    "gramsPerTsp": 2.4,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 113
+      }
+    ]
+  },
+  {
+    "slug": "vital-wheat-gluten",
+    "name": "Vital Wheat Gluten",
+    "aliases": [],
+    "category": "flour",
+    "gramsPerCup": 144,
+    "gramsPerTbsp": 9,
+    "gramsPerTsp": 3,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 144
+      }
+    ]
+  },
+  {
+    "slug": "baking-powder",
+    "name": "Baking Powder",
+    "aliases": [],
+    "category": "leavener",
+    "gramsPerCup": 192,
+    "gramsPerTbsp": 12,
+    "gramsPerTsp": 4,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 192
+      }
+    ],
+    "notes": "Almost always measured by the teaspoon, not the cup — the cup figure is shown for completeness only."
+  },
+  {
+    "slug": "baking-soda",
+    "name": "Baking Soda",
+    "aliases": [
+      "bicarbonate of soda",
+      "sodium bicarbonate"
+    ],
+    "category": "leavener",
+    "gramsPerCup": 288,
+    "gramsPerTbsp": 18,
+    "gramsPerTsp": 6,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 288
+      }
+    ],
+    "notes": "Almost always measured by the teaspoon, not the cup."
+  },
+  {
+    "slug": "instant-yeast",
+    "name": "Instant Yeast",
+    "aliases": [
+      "rapid-rise yeast",
+      "quick yeast",
+      "yeast",
+      "active dry yeast"
+    ],
+    "category": "yeast",
+    "gramsPerCup": 144,
+    "gramsPerTbsp": 9,
+    "gramsPerTsp": 3,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 144
+      }
+    ],
+    "notes": "A standard packet is 2¼ tsp (7 g). Active dry yeast has a similar volume-to-weight ratio and is commonly substituted 1:1 in home baking, though it needs proofing in warm water first — an approximate figure, not a separately measured density (audit gramcup-audit-3, P1)."
+  },
+  {
+    "slug": "salt-table",
+    "name": "Table Salt",
+    "aliases": [
+      "salt",
+      "fine salt",
+      "sea salt",
+      "fine sea salt"
+    ],
+    "category": "salt",
+    "gramsPerCup": 288,
+    "gramsPerTbsp": 18,
+    "gramsPerTsp": 6,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 288
+      },
+      {
+        "name": "USDA FoodData Central — Salt, table (FDC ID 173468)",
+        "url": "https://fdc.nal.usda.gov/fdc-app.html#/food-details/173468/nutrients",
+        "gramsPerCup": 292
+      }
+    ],
+    "notes": "Fine sea salt has a crystal size and volume-to-weight ratio close enough to table salt to use this figure — an approximate substitution. Coarse sea salt is lighter by volume and shouldn't be substituted 1:1."
+  },
+  {
+    "slug": "kosher-salt-diamond-crystal",
+    "name": "Kosher Salt (Diamond Crystal)",
+    "aliases": [
+      "diamond crystal kosher salt",
+      "kosher salt"
+    ],
+    "category": "salt",
+    "gramsPerCup": 128,
+    "gramsPerTbsp": 8,
+    "gramsPerTsp": 2.7,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 128
+      }
+    ],
+    "notes": "Diamond Crystal flakes are hollow and much lighter by volume than table salt or Morton kosher salt — do not substitute 1:1 by volume. A bare \"kosher salt\" with no brand named is an assumed, approximate match to this entry (Diamond Crystal), matching how most modern US recipe developers (NYT Cooking, Bon Appétit, Serious Eats) write recipes; Morton's is roughly 2x heavier by volume, so a recipe naming Morton's specifically still matches that brand's own entry, and getting the brand wrong on a salt-heavy bake matters."
+  },
+  {
+    "slug": "kosher-salt-mortons",
+    "name": "Kosher Salt (Morton's)",
+    "aliases": [
+      "morton kosher salt",
+      "mortons kosher salt"
+    ],
+    "category": "salt",
+    "gramsPerCup": 256,
+    "gramsPerTbsp": 16,
+    "gramsPerTsp": 5.3,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 256
+      }
+    ]
+  },
+  {
+    "slug": "granulated-sugar",
+    "name": "Granulated Sugar",
+    "aliases": [
+      "sugar",
+      "white sugar",
+      "caster sugar (US granulated)"
+    ],
+    "category": "sugar",
+    "gramsPerCup": 198,
+    "gramsPerTbsp": 12.4,
+    "gramsPerTsp": 4.1,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 198
+      },
+      {
+        "name": "USDA FoodData Central — Sugars, granulated",
+        "url": "https://fdc.nal.usda.gov/food-search?query=granulated%20sugar",
+        "gramsPerCup": 200
+      }
+    ],
+    "notes": "USDA lab measurements average about 200 g per cup across trials — within a few grams of the King Arthur figure."
+  },
+  {
+    "slug": "brown-sugar",
+    "name": "Brown Sugar",
+    "aliases": [
+      "light brown sugar",
+      "dark brown sugar",
+      "packed brown sugar"
+    ],
+    "category": "sugar",
+    "gramsPerCup": 213,
+    "gramsPerTbsp": 13.3,
+    "gramsPerTsp": 4.4,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 213
+      }
+    ],
+    "notes": "Always measured packed (pressed firmly into the cup) unless a recipe says \"lightly packed\"."
+  },
+  {
+    "slug": "confectioners-sugar",
+    "name": "Confectioners' Sugar",
+    "aliases": [
+      "powdered sugar",
+      "icing sugar",
+      "confectioners sugar"
+    ],
+    "category": "sugar",
+    "gramsPerCup": 113,
+    "gramsPerTbsp": 7.1,
+    "gramsPerTsp": 2.4,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 113
+      }
+    ],
+    "notes": "Unsifted; sifted powdered sugar can weigh noticeably less per cup."
+  },
+  {
+    "slug": "superfine-sugar",
+    "name": "Superfine Sugar",
+    "aliases": [
+      "caster sugar",
+      "baker's special sugar",
+      "castor sugar"
+    ],
+    "category": "sugar",
+    "gramsPerCup": 190,
+    "gramsPerTbsp": 11.9,
+    "gramsPerTsp": 4,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 190
+      }
+    ]
+  },
+  {
+    "slug": "turbinado-sugar",
+    "name": "Turbinado Sugar",
+    "aliases": [
+      "raw sugar",
+      "demerara-style sugar"
+    ],
+    "category": "sugar",
+    "gramsPerCup": 180,
+    "gramsPerTbsp": 11.3,
+    "gramsPerTsp": 3.8,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 180
+      }
+    ]
+  },
+  {
+    "slug": "maple-sugar",
+    "name": "Maple Sugar",
+    "aliases": [],
+    "category": "sugar",
+    "gramsPerCup": 156,
+    "gramsPerTbsp": 9.8,
+    "gramsPerTsp": 3.3,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 156
+      }
+    ]
+  },
+  {
+    "slug": "honey",
+    "name": "Honey",
+    "aliases": [],
+    "category": "syrup",
+    "gramsPerCup": 336,
+    "gramsPerTbsp": 21,
+    "gramsPerTsp": 7,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 336
+      },
+      {
+        "name": "USDA FoodData Central — Honey (FDC ID 169640)",
+        "url": "https://fdc.nal.usda.gov/fdc-app.html#/food-details/169640/nutrients",
+        "gramsPerCup": 336
+      }
+    ]
+  },
+  {
+    "slug": "maple-syrup",
+    "name": "Maple Syrup",
+    "aliases": [
+      "pure maple syrup"
+    ],
+    "category": "syrup",
+    "gramsPerCup": 312,
+    "gramsPerTbsp": 19.5,
+    "gramsPerTsp": 6.5,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 312
+      }
+    ]
+  },
+  {
+    "slug": "corn-syrup",
+    "name": "Corn Syrup",
+    "aliases": [
+      "light corn syrup"
+    ],
+    "category": "syrup",
+    "gramsPerCup": 312,
+    "gramsPerTbsp": 19.5,
+    "gramsPerTsp": 6.5,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 312
+      }
+    ]
+  },
+  {
+    "slug": "molasses",
+    "name": "Molasses",
+    "aliases": [
+      "blackstrap molasses"
+    ],
+    "category": "syrup",
+    "gramsPerCup": 340,
+    "gramsPerTbsp": 21.3,
+    "gramsPerTsp": 7.1,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 340
+      }
+    ]
+  },
+  {
+    "slug": "agave-syrup",
+    "name": "Agave Syrup",
+    "aliases": [
+      "agave nectar"
+    ],
+    "category": "syrup",
+    "gramsPerCup": 336,
+    "gramsPerTbsp": 21,
+    "gramsPerTsp": 7,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 336
+      }
+    ]
+  },
+  {
+    "slug": "jam-preserves",
+    "name": "Jam or Preserves",
+    "aliases": [
+      "fruit preserves"
+    ],
+    "category": "syrup",
+    "gramsPerCup": 340,
+    "gramsPerTbsp": 21.3,
+    "gramsPerTsp": 7.1,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 340
+      }
+    ]
+  },
+  {
+    "slug": "butter",
+    "name": "Butter",
+    "aliases": [],
+    "category": "fat-oil",
+    "gramsPerCup": 226,
+    "gramsPerTbsp": 14.1,
+    "gramsPerTsp": 4.7,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 226
+      },
+      {
+        "name": "USDA FoodData Central — Butter, salted (FDC ID 173410)",
+        "url": "https://fdc.nal.usda.gov/fdc-app.html#/food-details/173410/nutrients",
+        "gramsPerCup": 227
+      }
+    ],
+    "notes": "One US stick of butter is ½ cup (113 g); a \"cup\" of butter is 2 sticks, commonly rounded to 227 g."
+  },
+  {
+    "slug": "coconut-oil",
+    "name": "Coconut Oil",
+    "aliases": [],
+    "category": "fat-oil",
+    "gramsPerCup": 226,
+    "gramsPerTbsp": 14.1,
+    "gramsPerTsp": 4.7,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 226
+      }
+    ]
+  },
+  {
+    "slug": "lard",
+    "name": "Lard",
+    "aliases": [],
+    "category": "fat-oil",
+    "gramsPerCup": 226,
+    "gramsPerTbsp": 14.1,
+    "gramsPerTsp": 4.7,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 226
+      }
+    ]
+  },
+  {
+    "slug": "olive-oil",
+    "name": "Olive Oil",
+    "aliases": [],
+    "category": "fat-oil",
+    "gramsPerCup": 200,
+    "gramsPerTbsp": 12.5,
+    "gramsPerTsp": 4.2,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 200
+      }
+    ]
+  },
+  {
+    "slug": "vegetable-oil",
+    "name": "Vegetable Oil",
+    "aliases": [
+      "oil",
+      "canola oil",
+      "neutral oil"
+    ],
+    "category": "fat-oil",
+    "gramsPerCup": 198,
+    "gramsPerTbsp": 12.4,
+    "gramsPerTsp": 4.1,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 198
+      }
+    ]
+  },
+  {
+    "slug": "vegetable-shortening",
+    "name": "Vegetable Shortening",
+    "aliases": [
+      "crisco",
+      "shortening"
+    ],
+    "category": "fat-oil",
+    "gramsPerCup": 184,
+    "gramsPerTbsp": 11.5,
+    "gramsPerTsp": 3.8,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 184
+      }
+    ]
+  },
+  {
+    "slug": "ghee",
+    "name": "Ghee",
+    "aliases": [
+      "clarified butter"
+    ],
+    "category": "fat-oil",
+    "gramsPerCup": 176,
+    "gramsPerTbsp": 11,
+    "gramsPerTsp": 3.7,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 176
+      }
+    ]
+  },
+  {
+    "slug": "heavy-cream",
+    "name": "Heavy Cream",
+    "aliases": [
+      "cream",
+      "heavy whipping cream",
+      "double cream",
+      "light cream",
+      "half and half"
+    ],
+    "category": "dairy",
+    "gramsPerCup": 227,
+    "gramsPerTbsp": 14.2,
+    "gramsPerTsp": 4.7,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 227
+      }
+    ]
+  },
+  {
+    "slug": "whole-milk",
+    "name": "Milk",
+    "aliases": [
+      "whole milk",
+      "dairy milk"
+    ],
+    "category": "dairy",
+    "gramsPerCup": 227,
+    "gramsPerTbsp": 14.2,
+    "gramsPerTsp": 4.7,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 227
+      },
+      {
+        "name": "USDA FoodData Central — Milk, whole, 3.25% milkfat (FDC ID 171265)",
+        "url": "https://fdc.nal.usda.gov/fdc-app.html#/food-details/171265/nutrients",
+        "gramsPerCup": 244
+      }
+    ]
+  },
+  {
+    "slug": "buttermilk",
+    "name": "Buttermilk",
+    "aliases": [],
+    "category": "dairy",
+    "gramsPerCup": 227,
+    "gramsPerTbsp": 14.2,
+    "gramsPerTsp": 4.7,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 227
+      }
+    ]
+  },
+  {
+    "slug": "cream-cheese",
+    "name": "Cream Cheese",
+    "aliases": [],
+    "category": "dairy",
+    "gramsPerCup": 227,
+    "gramsPerTbsp": 14.2,
+    "gramsPerTsp": 4.7,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 227
+      }
+    ]
+  },
+  {
+    "slug": "sour-cream",
+    "name": "Sour Cream",
+    "aliases": [],
+    "category": "dairy",
+    "gramsPerCup": 227,
+    "gramsPerTbsp": 14.2,
+    "gramsPerTsp": 4.7,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 227
+      }
+    ]
+  },
+  {
+    "slug": "yogurt",
+    "name": "Yogurt",
+    "aliases": [
+      "plain yogurt",
+      "greek yogurt",
+      "greek yoghurt",
+      "yoghurt"
+    ],
+    "category": "dairy",
+    "gramsPerCup": 227,
+    "gramsPerTbsp": 14.2,
+    "gramsPerTsp": 4.7,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 227
+      }
+    ],
+    "notes": "This is plain yogurt. Greek yogurt is strained and denser — treat this figure as approximate for Greek yogurt; it can weigh 10-15% more per cup depending on the brand's straining."
+  },
+  {
+    "slug": "creme-fraiche",
+    "name": "Crème Fraîche",
+    "aliases": [],
+    "category": "dairy",
+    "gramsPerCup": 226,
+    "gramsPerTbsp": 14.1,
+    "gramsPerTsp": 4.7,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 226
+      }
+    ]
+  },
+  {
+    "slug": "ricotta",
+    "name": "Ricotta Cheese",
+    "aliases": [],
+    "category": "cheese",
+    "gramsPerCup": 227,
+    "gramsPerTbsp": 14.2,
+    "gramsPerTsp": 4.7,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 227
+      }
+    ]
+  },
+  {
+    "slug": "mascarpone",
+    "name": "Mascarpone Cheese",
+    "aliases": [],
+    "category": "cheese",
+    "gramsPerCup": 227,
+    "gramsPerTbsp": 14.2,
+    "gramsPerTsp": 4.7,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 227
+      }
+    ]
+  },
+  {
+    "slug": "cottage-cheese",
+    "name": "Cottage Cheese",
+    "aliases": [],
+    "category": "dairy",
+    "gramsPerCup": 226,
+    "gramsPerTbsp": 14.1,
+    "gramsPerTsp": 4.7,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 226
+      }
+    ]
+  },
+  {
+    "slug": "shredded-cheddar",
+    "name": "Shredded Cheddar Cheese",
+    "aliases": [
+      "grated cheddar",
+      "shredded mozzarella",
+      "shredded jack cheese",
+      "shredded swiss",
+      "cheese",
+      "shredded cheese",
+      "cheddar cheese",
+      "cheddar"
+    ],
+    "category": "cheese",
+    "gramsPerCup": 113,
+    "gramsPerTbsp": 7.1,
+    "gramsPerTsp": 2.4,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 113
+      }
+    ]
+  },
+  {
+    "slug": "grated-parmesan",
+    "name": "Grated Parmesan",
+    "aliases": [
+      "parmesan cheese"
+    ],
+    "category": "cheese",
+    "gramsPerCup": 100,
+    "gramsPerTbsp": 6.3,
+    "gramsPerTsp": 2.1,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 100
+      }
+    ]
+  },
+  {
+    "slug": "crumbled-feta",
+    "name": "Crumbled Feta",
+    "aliases": [
+      "feta cheese"
+    ],
+    "category": "cheese",
+    "gramsPerCup": 114,
+    "gramsPerTbsp": 7.1,
+    "gramsPerTsp": 2.4,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 114
+      }
+    ]
+  },
+  {
+    "slug": "queso-fresco",
+    "name": "Queso Fresco",
+    "aliases": [],
+    "category": "cheese",
+    "gramsPerCup": 114,
+    "gramsPerTbsp": 7.1,
+    "gramsPerTsp": 2.4,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 114
+      }
+    ]
+  },
+  {
+    "slug": "evaporated-milk",
+    "name": "Evaporated Milk",
+    "aliases": [],
+    "category": "dairy",
+    "gramsPerCup": 226,
+    "gramsPerTbsp": 14.1,
+    "gramsPerTsp": 4.7,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 226
+      }
+    ]
+  },
+  {
+    "slug": "powdered-milk-nonfat",
+    "name": "Powdered Milk (Nonfat)",
+    "aliases": [
+      "dry milk",
+      "milk powder"
+    ],
+    "category": "dairy",
+    "gramsPerCup": 112,
+    "gramsPerTbsp": 7,
+    "gramsPerTsp": 2.3,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 112
+      }
+    ]
+  },
+  {
+    "slug": "buttermilk-powder",
+    "name": "Buttermilk Powder",
+    "aliases": [],
+    "category": "dairy",
+    "gramsPerCup": 144,
+    "gramsPerTbsp": 9,
+    "gramsPerTsp": 3,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 144
+      }
+    ]
+  },
+  {
+    "slug": "rolled-oats",
+    "name": "Rolled Oats",
+    "aliases": [
+      "oats",
+      "old-fashioned oats",
+      "old fashioned oats"
+    ],
+    "category": "grain",
+    "gramsPerCup": 89,
+    "gramsPerTbsp": 5.6,
+    "gramsPerTsp": 1.9,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 89
+      }
+    ]
+  },
+  {
+    "slug": "quick-oats",
+    "name": "Quick Oats",
+    "aliases": [
+      "quick-cooking oats",
+      "instant oats"
+    ],
+    "category": "grain",
+    "gramsPerCup": 89,
+    "gramsPerTbsp": 5.6,
+    "gramsPerTsp": 1.9,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 89
+      }
+    ]
+  },
+  {
+    "slug": "cooked-oatmeal",
+    "name": "Cooked Oatmeal",
+    "aliases": [
+      "prepared oatmeal"
+    ],
+    "category": "grain",
+    "gramsPerCup": 147,
+    "gramsPerTbsp": 9.2,
+    "gramsPerTsp": 3.1,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 147
+      }
+    ]
+  },
+  {
+    "slug": "white-rice-dry",
+    "name": "White Rice (Uncooked)",
+    "aliases": [
+      "rice",
+      "long grain white rice",
+      "dry white rice"
+    ],
+    "category": "grain",
+    "gramsPerCup": 198,
+    "gramsPerTbsp": 12.4,
+    "gramsPerTsp": 4.1,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 198
+      }
+    ]
+  },
+  {
+    "slug": "white-rice-cooked",
+    "name": "White Rice (Cooked)",
+    "aliases": [
+      "cooked white rice",
+      "steamed rice",
+      "cooked rice"
+    ],
+    "category": "grain",
+    "gramsPerCup": 158,
+    "gramsPerTbsp": 9.9,
+    "gramsPerTsp": 3.3,
+    "sources": [
+      {
+        "name": "USDA FoodData Central — Rice, white, cooked",
+        "url": "https://fdc.nal.usda.gov/food-search?query=white+rice+cooked",
+        "gramsPerCup": 158
+      }
+    ]
+  },
+  {
+    "slug": "brown-rice-cooked",
+    "name": "Brown Rice (Cooked)",
+    "aliases": [
+      "cooked brown rice"
+    ],
+    "category": "grain",
+    "gramsPerCup": 170,
+    "gramsPerTbsp": 10.6,
+    "gramsPerTsp": 3.5,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 170
+      }
+    ]
+  },
+  {
+    "slug": "quinoa-dry",
+    "name": "Quinoa (Uncooked)",
+    "aliases": [
+      "dry quinoa"
+    ],
+    "category": "grain",
+    "gramsPerCup": 177,
+    "gramsPerTbsp": 11.1,
+    "gramsPerTsp": 3.7,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 177
+      }
+    ]
+  },
+  {
+    "slug": "quinoa-cooked",
+    "name": "Quinoa (Cooked)",
+    "aliases": [
+      "cooked quinoa"
+    ],
+    "category": "grain",
+    "gramsPerCup": 184,
+    "gramsPerTbsp": 11.5,
+    "gramsPerTsp": 3.8,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 184
+      }
+    ]
+  },
+  {
+    "slug": "bulgur",
+    "name": "Bulgur",
+    "aliases": [
+      "bulgur wheat"
+    ],
+    "category": "grain",
+    "gramsPerCup": 152,
+    "gramsPerTbsp": 9.5,
+    "gramsPerTsp": 3.2,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 152
+      }
+    ]
+  },
+  {
+    "slug": "sliced-almonds",
+    "name": "Sliced Almonds",
+    "aliases": [],
+    "category": "nut",
+    "gramsPerCup": 86,
+    "gramsPerTbsp": 5.4,
+    "gramsPerTsp": 1.8,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 86
+      }
+    ]
+  },
+  {
+    "slug": "slivered-almonds",
+    "name": "Slivered Almonds",
+    "aliases": [],
+    "category": "nut",
+    "gramsPerCup": 114,
+    "gramsPerTbsp": 7.1,
+    "gramsPerTsp": 2.4,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 114
+      }
+    ]
+  },
+  {
+    "slug": "whole-almonds",
+    "name": "Whole Almonds",
+    "aliases": [
+      "almonds"
+    ],
+    "category": "nut",
+    "gramsPerCup": 142,
+    "gramsPerTbsp": 8.9,
+    "gramsPerTsp": 3,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 142
+      }
+    ]
+  },
+  {
+    "slug": "almond-butter",
+    "name": "Almond Butter",
+    "aliases": [],
+    "category": "nut-butter",
+    "gramsPerCup": 272,
+    "gramsPerTbsp": 17,
+    "gramsPerTsp": 5.7,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 272
+      }
+    ]
+  },
+  {
+    "slug": "chopped-walnuts",
+    "name": "Chopped Walnuts",
+    "aliases": [
+      "walnuts, chopped"
+    ],
+    "category": "nut",
+    "gramsPerCup": 113,
+    "gramsPerTbsp": 7.1,
+    "gramsPerTsp": 2.4,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 113
+      }
+    ]
+  },
+  {
+    "slug": "walnut-halves",
+    "name": "Walnut Halves",
+    "aliases": [
+      "whole walnuts"
+    ],
+    "category": "nut",
+    "gramsPerCup": 128,
+    "gramsPerTbsp": 8,
+    "gramsPerTsp": 2.7,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 128
+      }
+    ]
+  },
+  {
+    "slug": "chopped-pecans",
+    "name": "Chopped Pecans",
+    "aliases": [
+      "pecans",
+      "pecans, diced"
+    ],
+    "category": "nut",
+    "gramsPerCup": 114,
+    "gramsPerTbsp": 7.1,
+    "gramsPerTsp": 2.4,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 114
+      }
+    ]
+  },
+  {
+    "slug": "pecan-halves",
+    "name": "Pecan Halves",
+    "aliases": [
+      "whole pecans"
+    ],
+    "category": "nut",
+    "gramsPerCup": 105,
+    "gramsPerTbsp": 6.6,
+    "gramsPerTsp": 2.2,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 105
+      }
+    ]
+  },
+  {
+    "slug": "peanuts",
+    "name": "Peanuts",
+    "aliases": [
+      "shelled peanuts",
+      "roasted peanuts"
+    ],
+    "category": "nut",
+    "gramsPerCup": 142,
+    "gramsPerTbsp": 8.9,
+    "gramsPerTsp": 3,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 142
+      }
+    ]
+  },
+  {
+    "slug": "peanut-butter",
+    "name": "Peanut Butter",
+    "aliases": [],
+    "category": "nut-butter",
+    "gramsPerCup": 270,
+    "gramsPerTbsp": 16.9,
+    "gramsPerTsp": 5.6,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 270
+      }
+    ]
+  },
+  {
+    "slug": "chia-seeds",
+    "name": "Chia Seeds",
+    "aliases": [],
+    "category": "seed",
+    "gramsPerCup": 148,
+    "gramsPerTbsp": 9.3,
+    "gramsPerTsp": 3.1,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 148
+      }
+    ]
+  },
+  {
+    "slug": "flaxseed",
+    "name": "Flaxseed",
+    "aliases": [
+      "whole flaxseed",
+      "flax seeds"
+    ],
+    "category": "seed",
+    "gramsPerCup": 140,
+    "gramsPerTbsp": 8.8,
+    "gramsPerTsp": 2.9,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 140
+      }
+    ]
+  },
+  {
+    "slug": "flax-meal",
+    "name": "Flax Meal",
+    "aliases": [
+      "ground flaxseed"
+    ],
+    "category": "seed",
+    "gramsPerCup": 100,
+    "gramsPerTbsp": 6.3,
+    "gramsPerTsp": 2.1,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 100
+      }
+    ]
+  },
+  {
+    "slug": "sesame-seeds",
+    "name": "Sesame Seeds",
+    "aliases": [],
+    "category": "seed",
+    "gramsPerCup": 142,
+    "gramsPerTbsp": 8.9,
+    "gramsPerTsp": 3,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 142
+      }
+    ]
+  },
+  {
+    "slug": "sunflower-seeds",
+    "name": "Sunflower Seeds",
+    "aliases": [],
+    "category": "seed",
+    "gramsPerCup": 140,
+    "gramsPerTbsp": 8.8,
+    "gramsPerTsp": 2.9,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 140
+      }
+    ]
+  },
+  {
+    "slug": "sweetened-shredded-coconut",
+    "name": "Sweetened Shredded Coconut",
+    "aliases": [
+      "sweetened coconut flakes",
+      "shredded coconut"
+    ],
+    "category": "coconut",
+    "gramsPerCup": 85,
+    "gramsPerTbsp": 5.3,
+    "gramsPerTsp": 1.8,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 85
+      }
+    ],
+    "notes": "A bare \"shredded coconut\" with no sweetened/unsweetened noted defaults here, matching the sweetened bagged product most US recipes mean by that name; recipes that say \"unsweetened\" still match that entry."
+  },
+  {
+    "slug": "unsweetened-shredded-coconut",
+    "name": "Unsweetened Shredded Coconut",
+    "aliases": [],
+    "category": "coconut",
+    "gramsPerCup": 53,
+    "gramsPerTbsp": 3.3,
+    "gramsPerTsp": 1.1,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 53
+      }
+    ]
+  },
+  {
+    "slug": "desiccated-coconut",
+    "name": "Desiccated Coconut",
+    "aliases": [
+      "unsweetened desiccated coconut"
+    ],
+    "category": "coconut",
+    "gramsPerCup": 85,
+    "gramsPerTbsp": 5.3,
+    "gramsPerTsp": 1.8,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 85
+      }
+    ]
+  },
+  {
+    "slug": "coconut-flakes",
+    "name": "Coconut Flakes",
+    "aliases": [
+      "large unsweetened coconut flakes"
+    ],
+    "category": "coconut",
+    "gramsPerCup": 60,
+    "gramsPerTbsp": 3.8,
+    "gramsPerTsp": 1.3,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 60
+      }
+    ]
+  },
+  {
+    "slug": "cocoa-powder",
+    "name": "Cocoa Powder",
+    "aliases": [
+      "unsweetened cocoa powder",
+      "cocoa"
+    ],
+    "category": "chocolate",
+    "gramsPerCup": 84,
+    "gramsPerTbsp": 5.3,
+    "gramsPerTsp": 1.8,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 84
+      }
+    ]
+  },
+  {
+    "slug": "chopped-chocolate",
+    "name": "Chopped Chocolate",
+    "aliases": [
+      "chopped baking chocolate"
+    ],
+    "category": "chocolate",
+    "gramsPerCup": 170,
+    "gramsPerTbsp": 10.6,
+    "gramsPerTsp": 3.5,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 170
+      }
+    ]
+  },
+  {
+    "slug": "chocolate-chips",
+    "name": "Chocolate Chips",
+    "aliases": [
+      "semisweet chocolate chips"
+    ],
+    "category": "chocolate",
+    "gramsPerCup": 170,
+    "gramsPerTbsp": 10.6,
+    "gramsPerTsp": 3.5,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 170
+      }
+    ]
+  },
+  {
+    "slug": "mini-chocolate-chips",
+    "name": "Mini Chocolate Chips",
+    "aliases": [],
+    "category": "chocolate",
+    "gramsPerCup": 177,
+    "gramsPerTbsp": 11.1,
+    "gramsPerTsp": 3.7,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 177
+      }
+    ]
+  },
+  {
+    "slug": "white-chocolate-chips",
+    "name": "White Chocolate Chips",
+    "aliases": [],
+    "category": "chocolate",
+    "gramsPerCup": 170,
+    "gramsPerTbsp": 10.6,
+    "gramsPerTsp": 3.5,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 170
+      }
+    ]
+  },
+  {
+    "slug": "dried-apricots",
+    "name": "Dried Apricots",
+    "aliases": [
+      "diced dried apricots"
+    ],
+    "category": "dried-fruit",
+    "gramsPerCup": 128,
+    "gramsPerTbsp": 8,
+    "gramsPerTsp": 2.7,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 128
+      }
+    ]
+  },
+  {
+    "slug": "dried-breadcrumbs",
+    "name": "Dried Breadcrumbs",
+    "aliases": [
+      "dry breadcrumbs"
+    ],
+    "category": "breadcrumb",
+    "gramsPerCup": 112,
+    "gramsPerTbsp": 7,
+    "gramsPerTsp": 2.3,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 112
+      }
+    ]
+  },
+  {
+    "slug": "fresh-breadcrumbs",
+    "name": "Fresh Breadcrumbs",
+    "aliases": [],
+    "category": "breadcrumb",
+    "gramsPerCup": 84,
+    "gramsPerTbsp": 5.3,
+    "gramsPerTsp": 1.8,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 84
+      }
+    ]
+  },
+  {
+    "slug": "panko-breadcrumbs",
+    "name": "Panko Breadcrumbs",
+    "aliases": [
+      "japanese panko"
+    ],
+    "category": "breadcrumb",
+    "gramsPerCup": 50,
+    "gramsPerTbsp": 3.1,
+    "gramsPerTsp": 1,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 50
+      }
+    ]
+  },
+  {
+    "slug": "dried-cherries",
+    "name": "Dried Cherries",
+    "aliases": [],
+    "category": "dried-fruit",
+    "gramsPerCup": 142,
+    "gramsPerTbsp": 8.9,
+    "gramsPerTsp": 3,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 142
+      }
+    ]
+  },
+  {
+    "slug": "dried-cranberries",
+    "name": "Dried Cranberries",
+    "aliases": [
+      "craisins"
+    ],
+    "category": "dried-fruit",
+    "gramsPerCup": 114,
+    "gramsPerTbsp": 7.1,
+    "gramsPerTsp": 2.4,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 114
+      }
+    ]
+  },
+  {
+    "slug": "chopped-dates",
+    "name": "Chopped Dates",
+    "aliases": [
+      "dates"
+    ],
+    "category": "dried-fruit",
+    "gramsPerCup": 149,
+    "gramsPerTbsp": 9.3,
+    "gramsPerTsp": 3.1,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 149
+      }
+    ]
+  },
+  {
+    "slug": "dried-figs",
+    "name": "Dried Figs",
+    "aliases": [
+      "chopped dried figs"
+    ],
+    "category": "dried-fruit",
+    "gramsPerCup": 149,
+    "gramsPerTbsp": 9.3,
+    "gramsPerTsp": 3.1,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 149
+      }
+    ]
+  },
+  {
+    "slug": "raisins",
+    "name": "Raisins",
+    "aliases": [
+      "loose raisins"
+    ],
+    "category": "dried-fruit",
+    "gramsPerCup": 149,
+    "gramsPerTbsp": 9.3,
+    "gramsPerTsp": 3.1,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 149
+      }
+    ],
+    "notes": "Packed/pressed raisins weigh more — about 170 g per cup (85 g per packed ½ cup)."
+  },
+  {
+    "slug": "vanilla-extract",
+    "name": "Vanilla Extract",
+    "aliases": [
+      "pure vanilla extract",
+      "vanilla"
+    ],
+    "category": "extract",
+    "gramsPerCup": 224,
+    "gramsPerTbsp": 14,
+    "gramsPerTsp": 4.7,
+    "sources": [
+      {
+        "name": "King Arthur Baking — Ingredient Weight Chart",
+        "url": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+        "gramsPerCup": 224
+      }
+    ]
+  },
+  {
+    "slug": "cooked-black-beans",
+    "name": "Black Beans (Cooked)",
+    "aliases": [
+      "cooked black beans",
+      "canned black beans, drained"
+    ],
+    "category": "bean",
+    "gramsPerCup": 172,
+    "gramsPerTbsp": 10.8,
+    "gramsPerTsp": 3.6,
+    "sources": [
+      {
+        "name": "USDA FoodData Central — Beans, black, cooked",
+        "url": "https://fdc.nal.usda.gov/food-search?query=black+beans+cooked",
+        "gramsPerCup": 172
+      }
+    ]
+  },
+  {
+    "slug": "ground-cinnamon",
+    "name": "Ground Cinnamon",
+    "aliases": [
+      "cinnamon",
+      "cinnamon powder"
+    ],
+    "category": "spice",
+    "gramsPerCup": 126.4,
+    "gramsPerTbsp": 7.9,
+    "gramsPerTsp": 2.6,
+    "sources": [
+      {
+        "name": "Aggregated spice-density reference (community volume/weight tables)",
+        "url": "https://www.cuporgram.com/convert/cinnamon/tablespoons-to-grams",
+        "gramsPerCup": 126.4
+      }
+    ],
+    "notes": "Spice density varies more than baking staples with grind and settling; treat this as an approximate figure."
+  },
+  {
+    "slug": "water",
+    "name": "Water",
+    "aliases": [],
+    "category": "water",
+    "gramsPerCup": 236.6,
+    "gramsPerTbsp": 14.8,
+    "gramsPerTsp": 4.9,
+    "sources": [
+      {
+        "name": "Water density: 1 g/mL at 4°C (physical constant)",
+        "url": "https://www.nist.gov/pml/owm/metric-si/si-units-mass",
+        "gramsPerCup": 236.6
+      }
+    ],
+    "notes": "Exact by definition: 1 mL of water weighs 1 g, and a US cup is 236.588 mL."
+  }
+]

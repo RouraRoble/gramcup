@@ -1,0 +1,237 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Faq from '../../components/Faq.astro';
+import Share from '../../components/Share.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import MoreTools from '../../components/MoreTools.astro';
+import { site } from '../../site.config';
+import { webAppLd, datasetLd, clampDescription } from '../../lib/seo';
+import { absoluteUrl, withBase } from '../../lib/url';
+import { ingredients, relatedIngredients, CATEGORY_LABELS, type Ingredient } from '../../lib/ingredients';
+import { convert, roundForDisplay, formatKitchen, kitchenValue, unitPhrase } from '../../lib/units';
+
+export function getStaticPaths() {
+  return ingredients.map((ingredient) => ({ params: { ingredient: ingredient.slug }, props: { ingredient } }));
+}
+
+interface Props {
+  ingredient: Ingredient;
+}
+const { ingredient } = Astro.props as Props;
+
+const cupFractions = [0.25, 1 / 3, 0.5, 2 / 3, 0.75, 1, 1.5, 2, 3];
+const cupTable = cupFractions.map((f) => ({
+  cup: f,
+  label: formatKitchen(f),
+  grams: roundForDisplay(convert(f, 'cup', 'g', ingredient), 'g'),
+  oz: roundForDisplay(convert(f, 'cup', 'oz', ingredient), 'oz'),
+}));
+
+const gramAmounts = [25, 50, 75, 100, 125, 150, 200, 250, 300, 400, 500];
+const gramTable = gramAmounts.map((g) => {
+  const cupsRaw = convert(g, 'g', 'cup', ingredient);
+  return {
+    grams: g,
+    cups: formatKitchen(cupsRaw),
+    // Pluralized off the same snapped value the kitchen text is built from, not a separately
+    // rounded decimal — otherwise "1 cups" and "½ cups" creep back in (audit gramcup-audit-2, P3).
+    cupsWord: unitPhrase(kitchenValue(cupsRaw), 'cup'),
+  };
+});
+
+const sourceRange = { min: Math.min(...ingredient.sources.map((s) => s.gramsPerCup)), max: Math.max(...ingredient.sources.map((s) => s.gramsPerCup)) };
+const related = relatedIngredients(ingredient, 6);
+
+const title = `${ingredient.name}: Cups to Grams Chart`;
+const description = clampDescription(
+  `1 cup of ${ingredient.name.toLowerCase()} = ${ingredient.gramsPerCup} g. Full grams ↔ cups, tablespoon and teaspoon conversion chart for ${ingredient.name.toLowerCase()}, with sources and a measuring tip.`,
+);
+
+const faqs = [
+  {
+    q: `How many grams are in a cup of ${ingredient.name.toLowerCase()}?`,
+    a: `1 US cup of ${ingredient.name.toLowerCase()} weighs ${ingredient.gramsPerCup} g, based on ${ingredient.sources[0].name}. ${sourceRange.min !== sourceRange.max ? `Published sources range from ${sourceRange.min} g to ${sourceRange.max} g per cup depending on how the cup was packed.` : ''}`,
+  },
+  {
+    q: `How many tablespoons of ${ingredient.name.toLowerCase()} are in a cup?`,
+    a: `There are always 16 tablespoons in a US cup, so 1 tablespoon of ${ingredient.name.toLowerCase()} weighs about ${ingredient.gramsPerTbsp} g, and 1 teaspoon weighs about ${ingredient.gramsPerTsp} g.`,
+  },
+  {
+    q: `Do I need to convert with a different cup size?`,
+    a: `This chart uses the US customary cup (236.6 ml). If your recipe uses a metric cup (250 ml) or imperial cup (284.1 ml), open the converter and switch the cup definition — the weight per cup scales with the cup's volume.`,
+  },
+];
+---
+
+<Base
+  title={title}
+  description={description}
+  image={`/og/${ingredient.slug}.png`}
+  jsonLd={[
+    // BreadcrumbList is emitted once by <Breadcrumbs> below; not duplicated here (audit
+    // gramcup-audit-1, P2: "Duplicate BreadcrumbList JSON-LD on every page that has breadcrumbs").
+    webAppLd({ name: `${ingredient.name} converter`, description, url: `/${ingredient.slug}/`, interactive: false, dateModified: site.dataUpdated }),
+    // This page's own gram-per-cup/tbsp/tsp figures are a small, sourced dataset in their own
+    // right (mission/POST_MVP_PLAN.md: "Dataset schema on data hubs ... gramcup ingredient hubs
+    // ... with license + source").
+    datasetLd({
+      name: `${ingredient.name} weight data`,
+      description: `Grams-per-cup, tablespoon and teaspoon weights for ${ingredient.name.toLowerCase()}, compiled from published measurement charts.`,
+      url: `/${ingredient.slug}/`,
+      // Facts (a measured weight) aren't copyrightable, but the sources compiled here include a
+      // brand's published chart alongside public-domain USDA data — link to the methodology page
+      // rather than assert a blanket CC0/public-domain licence for the compiled figures.
+      license: absoluteUrl('/about/'),
+      sources: ingredient.sources.map((s) => ({ name: s.name, url: s.url })),
+      dateModified: site.dataUpdated,
+    }),
+  ]}
+>
+  <article class="container container--narrow section">
+    <Breadcrumbs items={[{ name: 'Home', url: '/' }, { name: 'Ingredients', url: '/ingredients/' }, { name: ingredient.name, url: `/${ingredient.slug}/` }]} />
+    <p class="eyebrow">{CATEGORY_LABELS[ingredient.category] ?? 'Ingredient'}</p>
+    <h1>{ingredient.name}: grams to cups</h1>
+    <p class="answer">
+      1 cup of {ingredient.name.toLowerCase()} = <strong>{ingredient.gramsPerCup} g</strong> ({roundForDisplay(convert(1, 'cup', 'oz', ingredient), 'oz')} oz).
+      1 tablespoon = {ingredient.gramsPerTbsp} g · 1 teaspoon = {ingredient.gramsPerTsp} g.
+    </p>
+    <p class="muted small">
+      {sourceRange.min !== sourceRange.max ? (
+        <>Sources range {sourceRange.min}–{sourceRange.max} g per US cup. </>
+      ) : null}
+      See <a href={withBase(`/${ingredient.slug}/#sources`)}>{ingredient.sources.length > 1 ? 'sources' : 'the source'}</a> below.
+      {' '}Data updated: {site.dataUpdated}.
+    </p>
+    <p>
+      <a class="btn" href={withBase(`/?i=${ingredient.slug}&a=1&f=cup&t=g`)}>Open in the converter →</a>
+    </p>
+
+    <h2>Cups to grams</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Cups</th>
+            <th scope="col">Grams</th>
+            <th scope="col">Ounces</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            cupTable.map((row) => (
+              <tr>
+                <th scope="row">{row.label} {unitPhrase(row.cup, 'cup')}</th>
+                <td>{row.grams} g</td>
+                <td>{row.oz} oz</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Grams to cups</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Grams</th>
+            <th scope="col">Cups</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            gramTable.map((row) => (
+              <tr>
+                <th scope="row">{row.grams} g</th>
+                <td>{row.cups} {row.cupsWord}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Tablespoons &amp; teaspoons</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Amount</th>
+            <th scope="col">Grams</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1 tablespoon</th>
+            <td>{ingredient.gramsPerTbsp} g</td>
+          </tr>
+          <tr>
+            <th scope="row">1 teaspoon</th>
+            <td>{ingredient.gramsPerTsp} g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    {ingredient.notes && (
+      <div class="callout">
+        <p><strong>Good to know:</strong> {ingredient.notes}</p>
+      </div>
+    )}
+
+    <AdSlot slot="ingredient-mid" minHeight={90} />
+
+    <h2 id="sources">Sources</h2>
+    <ul>
+      {
+        ingredient.sources.map((s) => (
+          <li>
+            <a href={s.url} rel="noopener">{s.name}</a>: {s.gramsPerCup} g per US cup
+          </li>
+        ))
+      }
+    </ul>
+    <p class="muted small">See the <a href={withBase('/about/')}>methodology</a> for how these figures are compiled and why they can differ.</p>
+
+    <Faq items={faqs} />
+
+    {related.length > 0 && (
+      <>
+        <h2>Related ingredients</h2>
+        <ul class="related-list">
+          {related.map((r) => (
+            <li><a href={withBase(`/${r.slug}/`)}>{r.name}</a></li>
+          ))}
+        </ul>
+      </>
+    )}
+
+    <Share url={absoluteUrl(`/${ingredient.slug}/`)} text={`${ingredient.name}: 1 cup = ${ingredient.gramsPerCup} g — GramCup`} />
+  </article>
+
+  <section class="container">
+    <MoreTools />
+  </section>
+</Base>
+
+<style>
+  .answer {
+    font-size: var(--text-lg);
+  }
+  .callout {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: var(--space-4);
+    margin: var(--space-6) 0;
+  }
+  .related-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-4);
+  }
+</style>

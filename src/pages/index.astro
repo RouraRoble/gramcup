@@ -1,0 +1,160 @@
+---
+import Base from '../layouts/Base.astro';
+import Faq from '../components/Faq.astro';
+import Share from '../components/Share.astro';
+import AdSlot from '../components/AdSlot.astro';
+import MoreTools from '../components/MoreTools.astro';
+import Converter from '../components/Converter.tsx';
+import { site } from '../site.config';
+import { webAppLd } from '../lib/seo';
+import { absoluteUrl, withBase } from '../lib/url';
+import { getTopIngredients } from '../lib/ingredients';
+
+const faqs = [
+  { q: 'Why do different sites give different gram weights for the same cup?', a: 'Flour and other dry ingredients compress when scooped. A cup that is spooned in and levelled weighs less than one dipped straight into the bag. GramCup shows the spread between published sources on every ingredient page so you can see why the number moves.' },
+  { q: 'Which cup should I use — US, metric or imperial?', a: 'If your recipe is American, use the US customary cup (236.6 ml). British and Australian recipes usually mean the metric cup (250 ml). Switch the "cup definition" selector above the result to match your recipe.' },
+  { q: 'Is GramCup free and does it need an account?', a: 'Yes to both — everything runs in your browser, nothing you type is uploaded, and there is no sign-up.' },
+  { q: 'Can I convert a whole recipe at once?', a: 'Yes — use the recipe scaler to paste a full ingredient list, then scale it by a factor, by servings, or by pan size, and optionally convert every line to grams.' },
+];
+
+const topIngredients = getTopIngredients().slice(0, 18);
+---
+
+<Base
+  title="Grams to Cups Converter (Density-Aware, by Ingredient)"
+  description={site.description}
+  jsonLd={webAppLd({ features: ['Density-aware grams ↔ cups conversion', 'Recipe scaler and unit converter', 'Sourced ingredient weight charts'], dateModified: site.dataUpdated })}
+>
+  <section class="hero hero-texture container">
+    <p class="eyebrow">Free · No sign-up · Sources shown</p>
+    <h1>Grams, cups and tablespoons — for the ingredient you actually have.</h1>
+    <p class="lead">
+      Flour, sugar and butter don't weigh the same per cup. Pick your ingredient below and GramCup converts it correctly,
+      shows the range published sources report, and tells you how to measure it.
+    </p>
+    <p class="muted small">Data updated: {site.dataUpdated}.</p>
+  </section>
+
+  <section class="container" aria-label="Grams to cups converter">
+    <Converter client:load />
+  </section>
+
+  <section class="container">
+    <AdSlot slot="home-below-tool" minHeight={90} />
+  </section>
+
+  <section class="container container--narrow section">
+    <h2>Need to convert a whole recipe?</h2>
+    <p>
+      Paste an ingredient list into the <a href={withBase('/recipe-scaler/')}>recipe scaler</a> to scale it by a factor,
+      by servings, or by pan size — and convert every line to grams in one click.
+    </p>
+    <p><a class="btn" href={withBase('/recipe-scaler/')}>Open the recipe scaler →</a></p>
+  </section>
+
+  <section class="container container--narrow section">
+    <h2>Guides</h2>
+    <ul class="guide-list">
+      <li>
+        <a href={withBase('/guides/cup-sizes-explained/')}>US cup vs metric cup vs imperial cup, in grams</a>
+        <p class="muted small">A US, metric and imperial cup are three different volumes — see what that means in grams for five common ingredients.</p>
+      </li>
+      <li>
+        <a href={withBase('/guides/why-cup-weights-differ-by-source/')}>Why different sites give different gram weights</a>
+        <p class="muted small">Every ingredient in our dataset where published sources disagree, and how to measure consistently.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="container section">
+    <h2>Browse ingredients</h2>
+    <p class="muted">Every ingredient has its own page with a full conversion table, tablespoon/teaspoon weights, and sources.</p>
+    <ul class="ingredient-grid">
+      {
+        topIngredients.map((i) => (
+          <li>
+            <a href={withBase(`/${i.slug}/`)}>{i.name}</a>
+          </li>
+        ))
+      }
+    </ul>
+    <p><a href={withBase('/ingredients/')}>See all ingredients →</a></p>
+  </section>
+
+  <section class="container container--narrow">
+    <h2>Why weigh instead of measure by cup?</h2>
+    <p>
+      A cup is a volume, not a weight — but flour, sugar and butter each pack differently. Scooping flour straight from
+      the bag can weigh 20% more than spooning it in and levelling. A kitchen scale removes that variation entirely,
+      which is why most professional bakers weigh ingredients.
+    </p>
+    {site.affiliate.kitchenScale.url !== '#' && (
+      <p class="affiliate-note">
+        <a href={site.affiliate.kitchenScale.url} rel={site.affiliate.kitchenScale.rel}>{site.affiliate.kitchenScale.label}</a>
+        <span class="muted small"> · affiliate link</span>
+      </p>
+    )}
+    <Share url={absoluteUrl('/')} text={`${site.name}: ${site.tagline}`} />
+  </section>
+
+  <section class="container container--narrow">
+    <Faq items={faqs} />
+  </section>
+
+  <section class="container">
+    <MoreTools />
+  </section>
+</Base>
+
+<style>
+  .hero {
+    padding-block: var(--space-12) var(--space-8);
+  }
+  .lead {
+    font-size: var(--text-lg);
+    color: var(--fg-muted);
+    max-width: 62ch;
+  }
+  .ingredient-grid {
+    list-style: none;
+    margin: var(--space-4) 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-2) var(--space-4);
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 14rem), 1fr));
+  }
+  .ingredient-grid a {
+    display: block;
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg-elevated);
+    text-decoration: none;
+    color: var(--fg);
+  }
+  .ingredient-grid a:hover {
+    border-color: var(--accent);
+  }
+  .affiliate-note {
+    font-size: var(--text-sm);
+  }
+  .guide-list {
+    list-style: none;
+    margin: var(--space-4) 0 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+  }
+  .guide-list li {
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg-elevated);
+  }
+  .guide-list a {
+    font-weight: 600;
+  }
+  .guide-list p {
+    margin: var(--space-1) 0 0;
+  }
+</style>

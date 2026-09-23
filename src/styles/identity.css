@@ -1,0 +1,55 @@
+/* GramCup visual identity: editorial kitchen-notebook feel. Layered on top of base.css. */
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+h1 {
+  font-weight: 900;
+  font-style: italic;
+}
+h2 {
+  font-weight: 700;
+}
+.brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-lg);
+}
+.eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 700;
+}
+.site-header {
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  border-bottom: 1px solid var(--border);
+}
+::selection {
+  background: color-mix(in srgb, var(--accent) 30%, transparent);
+}
+.card {
+  box-shadow: var(--shadow);
+}
+.btn {
+  border-radius: 999px;
+}
+.btn--secondary:hover {
+  border-color: var(--border-strong);
+}
+/* Subtle warm paper texture behind the hero without an image asset (keeps JS/CSS-only, no CLS). */
+.hero-texture {
+  background-image: radial-gradient(circle at 18% 20%, color-mix(in srgb, var(--olive) 10%, transparent), transparent 45%),
+    radial-gradient(circle at 82% 0%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 50%);
+}
+/* Audit gramcup-audit-1, P2: at 320–375px the hero's 5-line h1 plus intro paragraph pushed the
+   converter tool below the fold. A smaller, tighter headline on narrow screens gets the actual
+   tool into view sooner without removing any content. */
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: var(--text-3xl);
+  }
+  .hero .lead {
+    font-size: var(--text-sm);
+  }
+}

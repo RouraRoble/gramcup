@@ -1,0 +1,123 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Faq from '../../components/Faq.astro';
+import Share from '../../components/Share.astro';
+import MoreTools from '../../components/MoreTools.astro';
+import { site } from '../../site.config';
+import { webAppLd, howToLd, clampDescription } from '../../lib/seo';
+import { absoluteUrl, withBase } from '../../lib/url';
+import { ingredients } from '../../lib/ingredients';
+
+const title = 'Why Sites Disagree on Grams Per Cup';
+const description = clampDescription(
+  'King Arthur says 1 cup of flour is 120 g; USDA says 125 g. Neither is wrong — they measured differently. See every ingredient in GramCup’s dataset where published sources disagree, and how to measure so your own result is consistent.',
+);
+
+// Computed from this page's own dataset, not invented: every ingredient here is one where two
+// published sources reported a different gramsPerCup figure for the same ingredient.
+const multiSourced = ingredients
+  .map((i) => ({ ingredient: i, min: Math.min(...i.sources.map((s) => s.gramsPerCup)), max: Math.max(...i.sources.map((s) => s.gramsPerCup)) }))
+  .filter((x) => x.min !== x.max)
+  .sort((a, b) => b.max - b.min - (a.max - a.min));
+
+const steps = [
+  { name: 'Fluff the ingredient', text: 'Stir or fluff a dry ingredient like flour in its container first — it settles and compacts in the bag or bin over time, which alone can add 10% or more.' },
+  { name: 'Spoon it into the cup', text: "Spoon the ingredient into the measuring cup rather than dipping the cup in and scooping — scooping packs the ingredient in and can weigh 15-20% more for flour." },
+  { name: 'Level it off', text: 'Run the flat edge of a knife or spatula across the top of the cup to remove the excess, without pressing down or shaking the cup level.' },
+];
+
+const faqs = [
+  { q: 'Which source should I trust?', a: 'Neither figure is "wrong" if both state their method — they measured a genuinely different physical action (scooping vs. spooning, or a different brand). Use the figure from whichever technique you actually use, or weigh instead of measuring by volume to remove the ambiguity entirely.' },
+  { q: 'Why does GramCup show a range instead of picking one number?', a: "Showing both published figures is more honest than silently averaging them or picking one — you can see exactly how much the method matters for that ingredient and decide which applies to you." },
+  { q: 'Does this affect every ingredient equally?', a: `No — it matters most for dry, compressible ingredients like flour. No. Powders and flakes that can be packed or aerated (flour, cocoa, brown sugar, coconut) vary with filling technique. Liquids such as milk cannot be packed, so when their figures differ (227 g vs 244 g for milk) it is because sources used different reference cup volumes or densities: 244 g is the USDA figure for a 236.6 ml cup at about 1.03 g/ml, while 227 g corresponds to a smaller or lighter reference.` },
+  { q: 'Is weighing always more accurate than measuring by cup?', a: 'Yes, for dry and semi-solid ingredients. A kitchen scale removes the packing-method variable entirely, which is why professional bakers weigh their ingredients.' },
+];
+---
+
+<Base
+  title={title}
+  description={description}
+  jsonLd={[
+    webAppLd({ name: title, description, url: '/guides/why-cup-weights-differ-by-source/', interactive: false, dateModified: site.dataUpdated }),
+    howToLd({ name: 'How to measure a dry ingredient by spoon and level', description: 'The standard baking-reference technique for a consistent, repeatable cup measurement.', steps }),
+  ]}
+>
+  <article class="container container--narrow section">
+    <Breadcrumbs items={[{ name: 'Home', url: '/' }, { name: 'Why sources differ', url: '/guides/why-cup-weights-differ-by-source/' }]} />
+    <h1>{title}</h1>
+    <p class="answer">
+      Of the {ingredients.length} ingredients in GramCup's dataset, <strong>{multiSourced.length}</strong> have two published sources that disagree —
+      the biggest spread is {multiSourced[0]?.ingredient.name.toLowerCase()}, at {multiSourced[0]?.min}-{multiSourced[0]?.max} g per US cup. The
+      cause is almost always <em>how</em> the cup was filled, not a measurement error.
+    </p>
+    <p class="muted small">Data updated: {site.dataUpdated}.</p>
+
+    <h2>Every ingredient where sources disagree</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Ingredient</th>
+            <th scope="col">Low figure</th>
+            <th scope="col">High figure</th>
+            <th scope="col">Spread</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            multiSourced.map(({ ingredient, min, max }) => (
+              <tr>
+                <th scope="row"><a href={withBase(`/${ingredient.slug}/#sources`)}>{ingredient.name}</a></th>
+                <td>{min} g</td>
+                <td>{max} g</td>
+                <td>{Math.round(((max - min) / min) * 100)}%</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+    <p class="muted small">
+      The other {ingredients.length - multiSourced.length} ingredients in the dataset currently have only one published source each, so no spread is
+      shown for them — see each ingredient's page for exactly which source that is.
+    </p>
+
+    <h2>How to measure consistently, whichever figure you use</h2>
+    <ol>
+      {steps.map((s) => (
+        <li><strong>{s.name}.</strong> {s.text}</li>
+      ))}
+    </ol>
+
+    <Faq items={faqs} />
+
+    <h2>Related</h2>
+    <ul class="related-list">
+      {multiSourced.map(({ ingredient }) => (
+        <li><a href={withBase(`/${ingredient.slug}/`)}>{ingredient.name}: grams to cups</a></li>
+      ))}
+      <li><a href={withBase('/guides/cup-sizes-explained/')}>US cup vs metric cup vs imperial cup</a></li>
+      <li><a href={withBase('/about/')}>Full methodology</a></li>
+    </ul>
+
+    <Share url={absoluteUrl('/guides/why-cup-weights-differ-by-source/')} text="Why different sites give different gram weights for the same cup — GramCup" />
+  </article>
+
+  <section class="container">
+    <MoreTools />
+  </section>
+</Base>
+
+<style>
+  .answer {
+    font-size: var(--text-lg);
+  }
+  .related-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-4);
+  }
+</style>

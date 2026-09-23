@@ -1,0 +1,88 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import MoreTools from '../../components/MoreTools.astro';
+import { site } from '../../site.config';
+import { ingredients, CATEGORY_LABELS } from '../../lib/ingredients';
+import { withBase, absoluteUrl } from '../../lib/url';
+import { datasetLd } from '../../lib/seo';
+
+const title = 'All Ingredients — Grams to Cups Charts';
+const description = `Every ingredient in ${site.name}'s density-aware converter, grouped by type, with a full grams ↔ cups conversion chart for each.`;
+const allSources = new Map(ingredients.flatMap((i) => i.sources).map((s) => [s.name, s.url]));
+
+const byCategory = new Map<string, typeof ingredients>();
+for (const i of ingredients) {
+  const list = byCategory.get(i.category) ?? [];
+  list.push(i);
+  byCategory.set(i.category, list);
+}
+const categories = [...byCategory.keys()].sort((a, b) => (CATEGORY_LABELS[a] ?? a).localeCompare(CATEGORY_LABELS[b] ?? b));
+---
+
+{/* BreadcrumbList is emitted once by <Breadcrumbs> below; not duplicated here (audit gramcup-audit-1, P2). */}
+<Base
+  title={title}
+  description={description}
+  jsonLd={[
+    datasetLd({
+      name: `${site.name} ingredient weight dataset`,
+      description: `Grams-per-cup, tablespoon and teaspoon weights for ${ingredients.length} baking and cooking ingredients.`,
+      url: '/ingredients/',
+      license: absoluteUrl('/about/'),
+      sources: [...allSources].map(([name, url]) => ({ name, url })),
+      dateModified: site.dataUpdated,
+    }),
+  ]}
+>
+  <article class="container container--narrow section">
+    <Breadcrumbs items={[{ name: 'Home', url: '/' }, { name: 'Ingredients', url: '/ingredients/' }]} />
+    <h1>All ingredients</h1>
+    <p class="lead">{ingredients.length} ingredients, each with a full grams ↔ cups, tablespoon and teaspoon chart and sources.</p>
+    <p class="muted small">Data updated: {site.dataUpdated}.</p>
+    {
+      categories.map((cat) => (
+        <section>
+          <h2>{CATEGORY_LABELS[cat] ?? cat}</h2>
+          <ul class="ing-list">
+            {byCategory
+              .get(cat)!
+              .sort((a, b) => a.name.localeCompare(b.name))
+              .map((i) => (
+                <li>
+                  <a href={withBase(`/${i.slug}/`)}>{i.name}</a>
+                  <span class="muted small"> — {i.gramsPerCup} g/cup</span>
+                </li>
+              ))}
+          </ul>
+        </section>
+      ))
+    }
+  </article>
+  <section class="container">
+    <MoreTools />
+  </section>
+</Base>
+
+<style>
+  .lead {
+    font-size: var(--text-lg);
+    color: var(--fg-muted);
+  }
+  .ing-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-6);
+    columns: 2;
+    column-gap: var(--space-6);
+  }
+  .ing-list li {
+    break-inside: avoid;
+    padding: var(--space-1) 0;
+  }
+  @media (max-width: 640px) {
+    .ing-list {
+      columns: 1;
+    }
+  }
+</style>
